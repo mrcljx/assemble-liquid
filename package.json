@@ -1,0 +1,49 @@
+{
+  "name": "assemble-liquid",
+  "description": "Assemble engine plugin for Liquid (liquid-node) templates.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/sirlantis/assemble-liquid",
+  "author": {
+    "name": "Marcel Jackwerth",
+    "url": "https://github.com/sirlantis"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sirlantis/assemble-liquid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sirlantis/assemble-liquid/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/sirlantis/assemble-liquid/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "./src/assemble-liquid",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "assemble",
+    "liquid",
+    "liquid-node",
+    "liquid templates",
+    "liquid-node templates",
+    "template"
+  ],
+  "dependencies": {
+    "liquid-node": "~0.1.1",
+    "q": ">= 0.8.12",
+    "coffee-script": "~1.6.3"
+  }
+}
