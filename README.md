@@ -1,32 +1,38 @@
 # assemble-liquid
 
-> Assemble engine plugin for processing Liquid (node-liquid) templates.
+> [Assemble](http://assemble.io) engine plugin for processing Liquid (node-liquid) templates.
 
-See [assemble](http://assemble.io) for documentation.
+## Installation
 
-## Usage
+From the same directory as your project's `Gruntfile` and `package.json`, install this plugin with the following command:
+
+```bash
+npm install assemble-liquid --save-dev
+```
 
 Modify your `assemble`-options in your `Gruntfile` so that `assemble` uses `assemble-liquid` as the engine.
 
-    grunt.initConfig({
+```html 
+grunt.initConfig({
+  // ...
+  
+  assemble: {
+    options: {
       // ...
-      
-      assemble: {
-        options: {
-          // ...
-          engine: "assemble-liquid"
-        },
-        site: {
-          files: [{
-            expand: true,
-            cwd: 'src/templates/pages',
-            src: ['**/*.liquid'],
-            dest: '<%= site.destination %>/'
-          }]
-        },
-      },
-      // ...
-    }
+      engine: "assemble-liquid"
+    },
+    site: {
+      files: [{
+        expand: true,
+        cwd: 'src/templates/pages',
+        src: ['**/*.liquid'],
+        dest: '<%= site.destination %>/'
+      }]
+    },
+  },
+  // ...
+}
+```
 
 ## To-Do
 
