@@ -45,7 +45,6 @@
   ],
   "dependencies": {
     "liquid-node": "~0.1.1",
-    "q": ">= 0.8.12",
-    "coffee-script": "~1.6.3"
+    "q": ">= 0.8.12"
   }
 }
