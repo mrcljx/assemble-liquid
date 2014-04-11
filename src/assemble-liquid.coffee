@@ -1,15 +1,17 @@
-Liquid = require "./liquid-ext"
+LiquidEngine = require "./liquid-ext"
 Q = require "q"
 fs = require "fs"
 Path = require "path"
 grunt = require "grunt"
 
 plugin = ->
+  engine = null
+  
   init = (options) ->
-    # no setup needed for now
+    engine = new LiquidEngine
     
   compile = (src, options) ->
-    Liquid.Template.extParse src, (layout, cb) ->
+    engine.extParse src, (layout, cb) ->
       layoutSources = Path.join options.layoutdir, "#{layout}.liquid"
       layoutSource = grunt.file.expand(layoutSources)[0]
       Q(layoutSource).then(grunt.file.read).nodeify cb
@@ -25,7 +27,7 @@ plugin = ->
       template.render options
 
   registerFunctions = (helperFunctions) ->
-    Liquid.Template.registerFilter helperFunctions
+    engine.registerFilter helperFunctions
 
   registerHelper = (helperName, helper) ->
     o = {}
@@ -44,7 +46,7 @@ plugin = ->
     registerFunctions: registerFunctions
     registerHelper: registerHelper
     # registerPartial is not supported for now
-    liquid: Liquid
+    liquid: LiquidEngine
   }
 
 module.exports = exports = plugin()

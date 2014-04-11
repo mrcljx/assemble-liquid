@@ -25,13 +25,16 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt test",
+    "test": "./node_modules/.bin/mocha -r coffee-script test/index.coffee",
     "prepublish": "./node_modules/gulp/bin/gulp.js --require coffee-script build"
   },
   "devDependencies": {
     "gulp-coffee": "~1.2.5",
     "gulp": "~3.3.1",
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.6.3",
+    "mocha": "^1.18.2",
+    "chai": "^1.9.1",
+    "grunt": "^0.4.4"
   },
   "peerDependencies": {
     "grunt": "~0.4.1"
