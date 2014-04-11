@@ -48,7 +48,7 @@
     "template"
   ],
   "dependencies": {
-    "liquid-node": "~0.2.0",
+    "liquid-node": "sirlantis/liquid-node#bluebird",
     "q": ">= 0.8.12"
   }
 }
