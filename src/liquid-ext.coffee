@@ -53,8 +53,11 @@ module.exports = ->
         @included = deferred.promise
 
         template.engine.importer @filepath, (err, src) ->
+          return deferred.reject(err) if err
           subTemplate = engine.extParse src, template.engine.importer
-          subTemplate.then (t) -> deferred.resolve t
+          subTemplate.then (t) ->
+            deferred.resolve t
+          , (err) -> deferred.reject err
 
         super
 
