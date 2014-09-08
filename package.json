@@ -48,7 +48,7 @@
     "template"
   ],
   "dependencies": {
-    "liquid-node": "~2.0.0",
+    "liquid-node": "^2.0.0",
     "q": ">= 0.8.12"
   }
 }
