@@ -23,3 +23,8 @@ describe "assemble-liquid", ->
       expect ->
         plugin.registerHelper "meaning", 24
       .not.to.throw(Error)
+
+    it "allows registration of partials", ->
+      expect ->
+        plugin.registerPartial "myPartial", ""
+      .not.to.throw(Error)

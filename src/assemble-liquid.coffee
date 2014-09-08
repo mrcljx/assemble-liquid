@@ -6,15 +6,17 @@ grunt = require "grunt"
 
 plugin = ->
   engine = null
+  partials = {}
 
   init = (options) ->
     engine = new LiquidEngine
 
   compile = (src, options) ->
-    engine.extParse src, (layout, cb) ->
-      layoutSources = Path.join options.layoutdir, "#{layout}.liquid"
-      layoutSource = grunt.file.expand(layoutSources)[0]
-      Q(layoutSource).then(grunt.file.read).nodeify cb
+    engine.extParse src, (name, cb) ->
+      if name of partials
+        cb null, partials[name]
+      else
+        cb new Error("Unknown partial: #{name}. Known: #{Object.keys(partials)}")
 
   ensureCompiled = (template, options) ->
     if typeof template is "string"
@@ -34,6 +36,9 @@ plugin = ->
     o[helperName] = helper
     registerFunctions o
 
+  registerPartial = (name, content) ->
+    partials[name] = content
+
   return {
     init: init
 
@@ -45,7 +50,7 @@ plugin = ->
 
     registerFunctions: registerFunctions
     registerHelper: registerHelper
-    # registerPartial is not supported for now
+    registerPartial: registerPartial
     liquid: LiquidEngine
   }
 
