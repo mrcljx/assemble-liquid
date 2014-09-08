@@ -1,7 +1,7 @@
 {
   "name": "assemble-liquid",
   "description": "Assemble engine plugin for Liquid (liquid-node) templates.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "homepage": "https://github.com/sirlantis/assemble-liquid",
   "author": {
     "name": "Marcel Jackwerth",
