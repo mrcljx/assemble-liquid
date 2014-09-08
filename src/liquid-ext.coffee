@@ -3,7 +3,7 @@ Liquid = require('liquid-node')
 
 module.exports = ->
   engine = new Liquid.Engine
-  
+
   engine.registerTag "block", do ->
     class BlockBlock extends Liquid.Block
       Syntax = /(\w+)/
