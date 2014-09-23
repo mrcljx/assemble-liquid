@@ -34,10 +34,6 @@ grunt.initConfig({
 }
 ```
 
-## To-Do
-
-- Assemble's partials are not supported yet.
-
 ## Authors
 
 **Marcel Jackwerth**
